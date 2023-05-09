@@ -25,7 +25,7 @@ const Steps = () => {
             initial="hidden"
             animate={controlls}
             variants={variants}
-            id='howitworks' className='my-4 min-h-full'>
+            id='howitworks' className='my-8'>
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                 <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                     How It Works.
@@ -39,23 +39,22 @@ const Steps = () => {
                     <img src='/seperator.jpg' className='w-16' />
                 </div>
                 <ol className="relative text-gray-500 w-[50%]">
-                    <li className="mb-16 ml-6">
+                    <li className="mb-20 ml-6">
                         <div className='flex flex-col px-4 py-2 w-[70%] gap-4'>
-                            <h3 className="font-medium leading-tight text-xl text-blue-600">Start your fundraiser</h3>
+                            <h3 className="font-semibold leading-tight text-xl text-blue-700">Start your fundraiser</h3>
                             <p className="text-base">It&apos;ll take only 2 minutes. Just tell us a few details about you and the ones you are raising funds for.</p>
                         </div>
                     </li>
-                    <li className="mb-16 ml-6">
+                    <li className="mb-20 ml-6">
 
                         <div className='flex flex-col px-4 py-2 w-[70%] gap-4'>
-                            <h3 className="font-medium leading-tight text-xl text-blue-600">Share your fundraiser</h3>
+                            <h3 className="font-semibold leading-tight text-xl text-blue-700">Share your fundraiser</h3>
                             <p className="text-base">All you need to do is share the fundraiser with your friends and family. In no time, support will start pouring in.</p>
                         </div>
                     </li>
                     <li className="mt-16 ml-6">
-
                         <div className='flex flex-col gap-4 px-4 py-2 w-[70%]'>
-                            <h3 className="font-medium leading-tight text-xl text-blue-600">Withdraw funds</h3>
+                            <h3 className="font-semibold leading-tight text-xl text-blue-700">Withdraw funds</h3>
                             <p className="text-base">The funds raised can be withdrawn without any hassle directly to your bank account.</p>
                         </div>
                     </li>

@@ -2,12 +2,15 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Courgette } from 'next/font/google'
+import { BiChevronDown, BiSearch } from 'react-icons/bi'
+import Link from 'next/link'
 
 const courgette = Courgette({ subsets: ['latin', 'latin-ext'], weight: '400' })
 
 const Navbar = () => {
 
   const [showSideBarHam, setShowSideBarHam] = useState(false)
+  const [showRaiseDrop, setshowRaiseDrop] = useState(false)
 
   const variants = {
     open: { opacity: 1, x: 0 },
@@ -21,8 +24,8 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={`bg-gray-50 py-2`}>
 
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-evenly ">
+      <div className="mx-auto max-w-screen px-2 sm:px-6 lg:px-8">
+        <div className="relative w-inherit flex h-16 items-center justify-evenly ">
 
           {/* Hamburger */}
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden" onClick={() => setShowSideBarHam(!showSideBarHam)}>
@@ -46,7 +49,7 @@ const Navbar = () => {
 
           {/* Lg Navbar */}
           <div className="flex items-center justify-center px-8">
-            <h3 className='text-3xl text-center text-blue-700 font-courgette font-bold font-cursive'>donate.ly</h3>
+            <Link href={"/"}><h3 className='text-3xl text-center text-blue-700 font-courgette font-bold font-cursive'>donate.ly</h3></Link>
           </div>
 
 
@@ -55,30 +58,50 @@ const Navbar = () => {
               <div className="flex space-x-4">
 
                 {/* <a href="#" className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a> */}
-                <a href="#about" className="text-black hover:text-blue-400 rounded-md px-3 py-2 text-base font-medium tracking-wide">About</a>
-                <a href="#" className="text-black hover:text-blue-400 rounded-md px-3 py-2 text-base font-medium tracking-wide">Raise Funds For </a>
-                <a href="#howitworks" className="text-black hover:text-blue-400 rounded-md px-3 py-2 text-base font-medium tracking-wide">How It Works</a>
-                <a href="#" className="text-black hover:text-blue-400 rounded-md px-3 py-2 text-base font-medium tracking-wide">Events</a>
-                <a href="#" className="text-black hover:text-blue-400 rounded-md px-3 py-2 text-base font-medium tracking-wide">Contact</a>
+                <a href="#about" className="text-black hover:text-blue-400 rounded-md px-3 py-2 text-base font-semibold tracking-wide">About</a>
+
+                <span className="reltive inline-block text-black hover:text-blue-400 rounded-md px-3 py-2 text-base font-semibold tracking-wide ">
+                  <span className='flex justify-center items-center gap-2 hover:cursor-pointer' onClick={() => setshowRaiseDrop(!showRaiseDrop)}>Raise Funds For <motion.span
+                    initial={{rotate: 0}}
+                    animate={{rotate: showRaiseDrop? 180: 0}}
+                  ><BiChevronDown size={18} /></motion.span>
+                  </span>
+
+                  {showRaiseDrop &&
+                    <motion.div
+                      initial={{ y: "-10%", opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute z-10 mt-3 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                      <div className="py-1" role="none">
+                        <Link href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">Individual</Link>
+                        <Link href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">Charity / Ngo</Link>
+                        <Link href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-2">Other cause</Link>
+
+                      </div>
+                    </motion.div>}
+                </span>
+                <a href="#howitworks" className="text-black hover:text-blue-400 rounded-md px-3 py-2 text-base font-semibold tracking-wide">How It Works</a>
+                <a href="#" className="text-black hover:text-blue-400 rounded-md px-3 py-2 text-base font-semibold tracking-wide">Events</a>
+                <a href="#" className="text-black hover:text-blue-400 rounded-md px-3 py-2 text-base font-semibold tracking-wide">Contact</a>
               </div>
             </div>
           </div>
           {/* Lg Navbar End */}
 
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div className=" flex items-center sm:ml-6 sm:pr-0">
 
             {/* Notification Button */}
-            <button type="button" className="hidden lg:block rounded-full bg-gray-100 p-1 text-gray-400 hover:text-white focus:outline-none hover:bg-gray-700">
+            <div className="flex flex-row text-gray-600 space-x-2 focus:outline-none border-r-2 pr-4 border-r-blue-400">
               <span className="sr-only">View notifications</span>
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-              </svg>
-            </button>
+              <BiSearch size={25} />
+              <span className='text-black text-base font-semibold tracking-wide'>Search</span>
+            </div>
 
 
 
             {/* Profile Droop Down */}
-            <div className="relative ml-3">
+            <div className="relative ml-4">
               <div>
                 <button type="button" className="flex rounded-full bg-gray-100 text-sm focus:outline-none" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span className="sr-only">Open user menu</span>

@@ -25,14 +25,14 @@ const About = () => {
             initial="hidden"
             animate={controlls}
             variants={variants}
-            id="about" className={`my-6`}>
-            <div className="relative overflow-hidden bg-white py-24 sm:py-18">
+            id="about" className={`my-8`}>
+            <div className="relative overflow-hidden py-24 sm:py-18">
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                     <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                         About Us.
                     </div>
                 </div>
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl px-6 lg:pl-24">
                     <div className='flex justify-start'>
                         <div className="mx-auto max-w-2xl lg:mx-0">
                             <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-6xl">What is Crowdfunding?</h2>

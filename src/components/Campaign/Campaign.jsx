@@ -29,7 +29,7 @@ const Campaign = () => {
             animate={controlls}
             variants={variants}
 
-            className='bg-white w-full' id='campaign'>
+            className='w-full' id='campaign'>
             <div className="relative px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl py-16 sm:py-18">
                     <div className="hidden sm:mb-8 sm:flex sm:justify-center">
@@ -40,12 +40,12 @@ const Campaign = () => {
                     <div className="text-center">
                         <h1 className="text-xl font-bold tracking-tight text-gray-900 sm:text-4xl">Campaigns</h1>
                     </div>
-                    <div className='flex items-center justify-center'>
-                        <CampaignList />
-                        <CampaignList />
-                        <CampaignList />
-                        <CampaignList />
+                    <div className='flex items-center justify-center max-w-full'>
+                        <CampaignList title={"This is s nsdvosidvnjk"}/>
+                        <CampaignList title={"lorem32"}/>
+                        <CampaignList title={"This is s nsdvosidvnjk"}/>
                     </div>
+
                 </div>
             </div>
 
